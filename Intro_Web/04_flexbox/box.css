@@ -1,0 +1,98 @@
+
+body{
+    margin: 0px;
+    padding: 0px;
+    height: 100vh;
+    /* El primer paso es usar el display: flex */
+    display: flex;
+    /* Mover los elementos en el eje x u horizontal */
+    justify-content: space-around;
+    /*Mover los elementos en el eje Y o vertical */
+    align-items: center;
+    /*Cambiar los elementos de fila a columna e invierte nuestos ejes (content)*/
+    flex-direction:row
+}
+
+.skip{
+    border: 2px red solid;
+    width: 30%;
+    height: 70%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction:column;
+}
+
+.skip2{
+    border: 2px brown solid;
+    width: 20%;
+    height: 20%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction:row;
+}
+
+.skip3{
+    border: 2px black solid;
+    width: 20%;
+    height: 20%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction:column;
+}
+
+.skip4{
+    border: 2px red solid;
+    width: 20%;
+    height: 20%;
+}
+
+.skip5{
+    border: 2px red solid;
+    width: 20%;
+    height: 20%;
+}
+
+.fili{
+    border: 2px red solid;
+    width: 30%;
+    height: 70%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction:row;
+}
+
+.fili2{
+    border: 2px red solid;
+    width: 20%;
+    height: 20%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction:column;
+}
+
+.fili3{
+    border: 2px red solid;
+    width: 20%;
+    height: 20%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction:row;
+}
+
+.fili4{
+    border: 2px red solid;
+    width: 20%;
+    height: 20%;
+}
+
+.fili5{
+    border: 2px red solid;
+    width: 20%;
+    height: 20%;
+}

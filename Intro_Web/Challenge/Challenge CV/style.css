@@ -1,0 +1,63 @@
+/* selector de etiqueta */
+
+body{
+
+    background-color: cadetblue;
+}
+
+h1{ 
+    color: black;
+    font-size: 100px;
+    font-style: italic;
+}
+
+h1,h3{
+
+    font-family: 'Roboto', sans-serif;
+}
+
+h2{
+    color: goldenrod;
+    font-size: 60px;
+}
+
+h3{ 
+    color: red;
+    font-size: 50px;
+    font-weight: bolder
+}
+
+p{
+    color: white;
+    font-size: 30px;
+    text-align: center;
+}
+
+ul{
+    color: firebrick;
+    font-size: 25px;
+}
+
+ol{
+    color: firebrick;
+    font-size: 25px;
+}
+
+img{
+
+    width: 150px;
+}
+
+a{
+    color:grey;
+}
+
+/* font family sirve para fuente */
+
+/* selector de clase */
+
+.black{
+
+    color: black;
+    font-size: 70px;
+}
