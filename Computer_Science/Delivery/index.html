@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en" class="has-navbar-fixed-top">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pupusapp</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdn.materialdesignicons.com/6.2.95/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar is-fixed-top has-shadow is-flex-touch is-justify-content-space-between">
+            <div class="navbar-brand">
+              <a class="navbar-item" href="/">
+                <img src="images/logo.png">
+              </a>
+            </div>
+            <div id="navbarBasicExample" class="navbar-menu is-flex">
+                <div class="navbar-start is-hidden-touch">
+                    <a class="navbar-item">
+                        <b>Restaurantes</b>
+                    </a>
+                    <a class="navbar-item">
+                        <b>Alimentos</b>
+                    </a>
+                </div>
+                <div class="navbar-end is-flex-touch is-justify-content-space-between">
+                    <div class="navbar-item">
+                        <form class="field has-addons" id="busqueda">
+                            <div class="control">
+                                <input id="inputBusqueda" autocomplete="off" class="input is-borderless is-rounded has-background-light" type="text" placeholder="Buscar...">
+                            </div>
+                            <div class="control">
+                                <button type="button" class="button is-rounded is-light">
+                                    <span class="icon is-left">
+                                        <i class="mdi mdi-magnify mdi-24px"></i>
+                                    </span>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="navbar-item">
+                        <div class="buttons">
+                            <a class="button is-black is-rounded"><span class="icon is-medium"><i class="mdi mdi-cart"></i></span><b class="is-size-7">0</b></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </nav>
+    </header>
+    <main>
+        <section class="section pt-5 pb-0">
+            <div class="container">
+                <div class="categories is-flex is-justify-content-space-between">
+                    <div class="box mr-2 mb-2 is-flex is-align-items-center is-flex-direction-column">
+                        <a href="#" id="todos" class="has-text-centered">
+                            <figure class="image">
+                                <img src="images/all.svg">
+                            </figure>
+                            <strong>todos</strong>
+                        </a>
+                    </div>
+                    <div class="box mr-2 mb-2 is-flex is-align-items-center is-flex-direction-column">
+                        <a href="#" id="eatery" class="has-text-centered">
+                            <figure class="image">
+                                <img src="images/eatery.svg">
+                            </figure>
+                            <strong>eatery</strong>
+                        </a>
+                    </div>
+                    <div class="box mr-2 mb-2 is-flex is-align-items-center is-flex-direction-column">
+                        <a href="#" id="japanese" class="has-text-centered">
+                            <figure class="image">
+                                <img src="images/japanese.svg">
+                            </figure>
+                            <strong>japanese</strong>
+                        </a>
+                    </div>
+                    <div class="box mr-2 mb-2 is-flex is-align-items-center is-flex-direction-column">
+                        <a href="#" id="canteen" class="has-text-centered">
+                            <figure class="image">
+                                <img src="images/canteen.svg">
+                            </figure>
+                            <strong>canteen</strong>
+                        </a>
+                    </div>
+                    <div class="box mr-2 mb-2 is-flex is-align-items-center is-flex-direction-column">
+                        <a href="#" id="bukka" class="has-text-centered">
+                            <figure class="image">
+                                <img src="images/pupusas.svg">
+                            </figure>
+                            <strong>bukka</strong>
+                        </a>
+                    </div>
+                    <div class="box mr-2 mb-2 is-flex is-align-items-center is-flex-direction-column">
+                        <a href="#" id="fifty" class="has-text-centered">
+                            <figure class="image">
+                                <img src="images/top.png">
+                            </figure>
+                            <strong>+50</strong>
+                        </a>
+                    </div>
+                    <div class="box has-background-light mr-2 mb-2 is-flex is-align-items-center is-flex-direction-column">
+                        <a href="#" id="popular" class="has-text-centered">
+                            <figure class="image">
+                                <img src="images/popular.png">
+                            </figure>
+                            <strong>1-100</strong>
+                        </a>
+                    </div>
+                    <div class="box has-background-light mr-2 mb-2 is-flex is-align-items-center is-flex-direction-column">
+                        <a href="#" id="alfabeto" class="has-text-centered">
+                            <figure class="image">
+                                <img src="images/order.svg">
+                            </figure>
+                            <strong>A-Z</strong>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <hr/>
+        <section class="section py-3">
+            <div class="container">
+            <h1 class="title mb-2">¿Qué quieres comer Hoy?</h1>
+            <p class="mb-5">Busca tu restaurante, comida o platillo favorito.</p>
+            <div id="results" class="columns is-multiline">
+            </div>
+            <div id="modal" class="modal mi-clase-1 mi-clase-2">
+              <div class="modal-background" onclick="mostrarModal()"></div>
+              <div class="modal-content">
+                <div class="modal-box">
+                  <article class="media">
+                    <div class="media-content">
+                      <div class="content">
+                        <h3 id="restaurant-name"></h3>
+                        <p id="restaurant-address">
+                        <p id="restaurant-phone"></p>
+                        <button 
+                        id="restaurant-add-favorites"
+                        
+                        class="button is-primary mb-2">Añadir a favoritos</button>
+                      </div>
+                    </div>
+                  </article>
+                  <figure class="image is-16by9">
+                    <img id="restaurant-image" class="is-block" src=""/>
+                  </figure>
+                </div>
+              </div>
+              <button class="modal-close is-large" aria-label="close" onclick="mostrarModal()"></button>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="content has-text-centered">
+          <p>
+            <strong>Pupusapp</strong> &copy; 2022 <span class="mx-2">&middot;</span> Todos los derechos reservados
+          </p>
+        </div>
+      </footer>
+      <script defer src="js/app.js"></script>
+      <script defer src="js/filters.js"></script>
+      <script defer src="js/favorites.js"></script>
+</body>
+</html>

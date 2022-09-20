@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pinterest Clone</title>
+        <link rel="stylesheet" href="css/styles.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    </head>
+    <body>
+            <nav class="navbar notbg-light navbar-expand-lg fixed-top">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="https://www.pinterest.com/">
+            <img src="./img/logo.png" alt="" width="24" height="24">
+          </a>
+        <div class="collapse navbar-collapse d-flex justify-content-around">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class= "nav-link" href="https://www.pinterest.com/">
+                        <div class="inicio"><strong>Inicio</strong></div>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class= "nav-link" href="https://www.pinterest.com/today/" class="navlink">
+                          <div class="hoy"><strong>Hoy</strong></div>
+                    </a>
+                  </li>
+            </ul> 
+        <div class="container-fluid"> 
+            <form class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="input-group">
+                          <input type="text" class="form-control search" placeholder="Buscar">
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="collapse navbar-collapse d-flex justify-content-around">
+            <ul class="navbar-nav">   
+                <li class="nav-item">
+                    <a class= "nav-link" href="#">
+                        <img class="iconimg" src="./img/Ícono de Campana Notificación.JPG" alt="" width="24" height="24">
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class= "nav-link" href="#">
+                        <img class="iconimg" src="./img/Ícono de Comentario.JPG" alt="" width="24" height="24">
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://www.pinterest.com/mgasca234/_saved/">
+                        <img class="iconimg" src="./img/Foto Usuario.jpg" alt="" width="24" height="24">
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-end"aria-labelledby="navbarDropdown">
+                    <label for="usuario">Actualmente en</label>
+                    <div id="usuario" class="card" style="width: 20rem; display: flexbox;">
+                      <img src="./img/Foto Usuario.jpg" style="width: 50px;  align-self: flex-start ;" class="card-img-left" alt="...">
+                      <div class="card-body"style="display: flexbox; justify">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text" style="align-text: end">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      </div>
+                    </div>
+                    <br>
+                    <label for="cuenta">Tus cuentas</label>
+                    <li><a class="dropdown-item" id="cuenta" href="#"><strong>Agregar cuenta</strong></a></li>
+                    <li><a class="dropdown-item" href="#"><strong>Convertir en cuenta para empresa</strong></a></li>
+                    <br>
+                    <label for="opciones">Más opciones</label>
+                    <li><a class="dropdown-item" id="opciones" href="#"><strong>Configuración</strong></a></li>
+                    <li><a class="dropdown-item" href="#"><strong>Mejora tu feed de inicio</strong></a></li>
+                    <li><a class="dropdown-item" href="#"><strong>Instalar la aplicación de Windows</strong></a></li>
+                    <li><a class="dropdown-item" href="#"><strong>Obtener ayuda</strong></a></li>
+                    <li><a class="dropdown-item" href="#"><strong>Ver condiciones y privacidad</strong></a></li>
+                    <li><a class="dropdown-item" href="#"><strong>Salir</strong></a></li>               
+                  </ul> 
+            </ul> 
+        </div>
+    </nav>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    </body>
+</html>

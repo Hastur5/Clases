@@ -1,0 +1,44 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: sans-serif;
+    flex-direction: column;
+}
+
+h1{
+    color: aqua;
+}
+
+button{
+    color: white;
+    background-color: brown;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: sans-serif;
+    flex-direction: column;
+}
+
+.azul{
+    color: blue;
+    background-color: blue;
+}
+
+.rojo{
+    color: red;
+    background-color: red;
+}
+
+.amarillo{
+    color: yellow;
+    background-color: yellow;
+}
