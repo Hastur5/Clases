@@ -17,13 +17,6 @@ body{
     display: flex;
     justify-content: center;
     margin: 15px;
-
-    .colunm{
-        width: 100%;
-        height: 100vh;
-        overflow:hidden;
-        position:absolute;
-    }
 }
 
 #formulario{
@@ -36,6 +29,7 @@ body{
     flex-direction: column;
     margin: 200px;
     width: 800px;
+    height: 480px;
 }
 
 .hide{
