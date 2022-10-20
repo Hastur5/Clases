@@ -1,0 +1,33 @@
+@import "variables";
+
+body{
+        background-color: $micolor;
+        display: flex;
+        justify-content: center;
+
+        h1{
+            font-size: 100px;
+            font-family: $fuente;
+        }
+
+        & .foto{
+            height: $height;
+            width: $width;
+
+            &:hover{
+                background-color: $micolor;
+                border-radius: 50%;
+	            cursor: pointer;
+                transition: background-color .5s;
+            }
+        }
+
+        p{
+            color: red;
+            background-color: black;
+
+            #otroElemento{
+                color: green;
+            }
+        }
+}

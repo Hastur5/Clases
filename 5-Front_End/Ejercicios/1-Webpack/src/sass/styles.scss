@@ -1,0 +1,19 @@
+// Import all of Bootstrap's CSS
+@import "node_modules/bootstrap/scss/bootstrap";
+@import "variables";
+
+body{
+        background-color: $micolor;
+        display: flex;
+        justify-content: center;
+}
+
+.hide{
+    display: none;
+}
+
+.visible{
+        margin: 10px;
+        align-items:center;
+        justify-content: center;
+}

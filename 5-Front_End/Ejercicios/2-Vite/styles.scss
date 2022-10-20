@@ -1,0 +1,60 @@
+@import "node_modules/bulma/bulma";
+
+$micolor: sienna;
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+    overflow:hidden;
+    position:absolute;
+    background-color: $micolor;
+    display: flex;
+    justify-content: center;
+    margin: 15px;
+
+    .colunm{
+        width: 100%;
+        height: 100vh;
+        overflow:hidden;
+        position:absolute;
+    }
+}
+
+#formulario{
+    background-color: #464444;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: sans-serif;
+    flex-direction: column;
+    margin: 200px;
+    width: 800px;
+}
+
+.hide{
+display: none;
+}
+
+.visible{
+    margin-bottom: 7px;
+    align-items:center;
+    justify-content: center;
+}
+
+img{
+    border-radius: 5px;
+    object-fit: cover;
+    display:block;
+    margin: auto;
+}
+
+button{
+    margin: 15px;
+}
