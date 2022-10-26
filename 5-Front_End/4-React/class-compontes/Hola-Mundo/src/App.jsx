@@ -1,7 +1,6 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
 import { Component } from 'react'
+import './App.css'
+import Counter from './components/Counter';
 
 
 //1. Class Component
@@ -11,8 +10,9 @@ class App extends Component {
   //2. Mandar llamar a render
 
   state = {
-    count: 0,
-    isDarkMode: false
+    count1: 0,
+    count2:10,
+    isDarkMode: true
   };
 
   render() {
@@ -21,11 +21,11 @@ class App extends Component {
     const day = 'Lunes';
 
     const greetings = () => {
-      if(this.state.count >=18){
+      if(this.state.count1 >=18){
       return  (
           <p> Eres mayor de edad. </p>
       );
-      } else return <p>Estás Shikito</p>
+      } else return <p>Estás Shikito, bro</p>
     };
 
    const darkModeOff = {
@@ -39,9 +39,6 @@ class App extends Component {
     fontSize: '35px', 
     borderStyle: 'inset'
    };
-
-
-
 
     //3. Regresar JSX
     return (
@@ -60,27 +57,28 @@ class App extends Component {
         <p> Eres mayor de edad con Conditional Rendering.</p>
         )} */}
         {/* 2do Escenario if () {} else {} */}
-        {this.state.count >= 18 ?(
+        {/* {this.state.count1 >= 18 ?(
           <p>Eres mayor de edad.</p>
         ) : (
           <p>Estás shikito, bro</p>
         )
-        }
-        {/* {greetings()} */}
+        } */}
+        {greetings()}
           {/* para setear estados se usa this.setState ({}) */}
-        <p>Valor de contador is {this.state.count}</p>
-        <button onClick={() => this.setState({count: this.state.count + 1})}>
         
-        Incrementar
-        </button>
-        <button onClick={() => this.setState({count: this.state.count - 1})}>
+        <Counter
+        // nombreProperty = value
+        fili = {this.state.count1} 
+        skip = {this.state.count2} 
+        volcan = {() => this.setState({count1 : this.state.count1 + 1})} 
+        volcan2 = {() => this.setState({count2 : this.state.count2 - 1})} />
 
-        Decrementar
-        </button>
+        {/* <button className='' id='' style={}></button> */}
+        
         <br />
        
         <button onClick={() => this.setState({isDarkMode: !this.state.isDarkMode})}>
-          Cambiar
+          Cambiar estilo de plantilla
         </button>
       </div>
     </div>
