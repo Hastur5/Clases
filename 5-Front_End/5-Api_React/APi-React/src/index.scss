@@ -1,0 +1,34 @@
+@import "../node_modules/bulma/bulma.sass";
+
+body{
+    background-color: black;
+    display: flex;
+    justify-content: center;
+
+    .card-content{
+        font-size: 30px;
+        font-family: sans-serif;
+        color: white;
+    }
+
+    &.card-image{
+        height: 80px;
+        width: 80px;
+
+        &:hover{
+            background-color: grey;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color .5s;
+        }
+    }
+
+    p{
+        color: red;
+        background-color: black;
+
+        #otroElemento{
+            color: green;
+        }
+    }
+}

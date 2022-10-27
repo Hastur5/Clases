@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import axios from 'axios';
+import Pokemon from "./Pokemon";
 
 class List extends Component {
 
@@ -19,14 +20,22 @@ class List extends Component {
 
     render(){
         return(
-            <ul>
-            {
-                this.state.pokemones.map(pokemon => {
-                    return (<li key={pokemon.id}><img src={pokemon.ThumbnailImage}/>
-                    <br></br> {pokemon.name} - {pokemon.number}</li>)
-                })
-            }
-            </ul>    
+            <div className='container'>
+                <div className="navbar" role="navigation" aria-label="main navigation">
+                    <div className="navbar-brand">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/International_Pok%C3%A9mon_logo.svg" alt="Pokedex" width="150" height="50"/>
+                    </div>
+                    <input class="input is-rounded" type="text" placeholder="Buscar"></input>
+                </div>
+
+                <div className='columns is-multiline'>
+                    {
+                        this.state.pokemones.map(pokemon => {
+                            return(<Pokemon key={pokemon.id} image={pokemon.ThumbnailImage} fili={pokemon.name} number={pokemon.number}></Pokemon>)
+                        })
+                    }
+                </div>
+            </div>
         )   
     }
 };
