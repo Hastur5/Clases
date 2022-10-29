@@ -27,21 +27,28 @@ class List extends Component {
 
     buscar = (event) => {
       let q = event.currentTarget.value.toLowerCase()
-      let resultados = this.state.pokemones.filter((pokemon) => {
+      let filtrados = this.state.pokemones.filter((pokemon) => {
         return pokemon.name.toLowerCase().includes(q)
 
       })
-      this.setState({resultados:resultados})
+      this.setState({resultados:filtrados})
     }
+
+    agua = (event) => {
+        let filtrados = this.state.pokemones.filter((pokemon) => {
+          return pokemon.type.includes("water")
+        })
+        this.setState({resultados:filtrados})
+      }
 
     render(){
         return(
             <div className="column">
                 <div className="navbar is-black is-fixed-top">
-
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/International_Pok%C3%A9mon_logo.svg" alt="Pokedex" width="150" height="50"/>
-                    
-                    <input className="input is-rounded" onKeyUp={this.buscar} type="text" placeholder="Buscar"></input>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/International_Pok%C3%A9mon_logo.svg" alt="Pokedex" width="150" height="50"/>
+                    <input className="input is-rounded is-expanded" onKeyUp={this.buscar} type="text" placeholder="Buscar"></input>
+                    <br />
+                    <button onClick={this.agua} className='button'>Ver pokemones Agua</button>
                 </div>
 
                 <div className='columns is-mobile is-multiline is-centered'>
