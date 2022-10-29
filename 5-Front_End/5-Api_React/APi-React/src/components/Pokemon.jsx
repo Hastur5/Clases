@@ -13,7 +13,7 @@ class Pokemon extends Component{
                         </figure>
                     </div>
                 </div>
-                <div className="card-content">{this.props.fili}</div>
+                <div className="card-content">{this.props.number}: {this.props.fili}</div>
             </div>
         )
     }

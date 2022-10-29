@@ -18,14 +18,19 @@ class List extends Component {
         });
     }
 
+    buscar = (event) => {
+      let q = console.log(event.currentTarget.value)
+      this.pokemon.filter()
+    }
+
     render(){
         return(
             <div className='container'>
-                <div className="navbar" role="navigation" aria-label="main navigation">
+                <div className="navbar is-black" role="navigation" aria-label="main navigation">
                     <div className="navbar-brand">
                             <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/International_Pok%C3%A9mon_logo.svg" alt="Pokedex" width="150" height="50"/>
                     </div>
-                    <input class="input is-rounded" type="text" placeholder="Buscar"></input>
+                    <input className="input is-rounded white-ter" onKeyUp={this.buscar} type="text" placeholder="Buscar"></input>
                 </div>
 
                 <div className='columns is-multiline'>
