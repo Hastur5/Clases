@@ -7,14 +7,18 @@ class List extends Component {
 
     state = {
         pokemones: [],
-        resultados: []
+        resultados: [],
+        pokemonInfo: {}
     }
+
+
 
     constructor(props) {
         super(props)
         //This biding is neccesary to make ´this´ work in the callback.
         this.buscar = this.buscar.bind(this)
         // this.tipo = this.tipo.bind(this)
+        this.getPokemonInfo = this.getPokemonInfo.bind(this)
     }
 
     componentDidMount(){
@@ -25,6 +29,21 @@ class List extends Component {
         .catch((error) => {
             console.log(error)
         });
+    }
+
+    getPokemonInfo(fili){
+        const BASE_URL = 'https://pokeapi.co/api/v2/'
+        axios
+        .get(`${BASE_URL}pokemon/${fili}`)
+        .then((response) => {
+            console.log('Respuesta de POKEAPI',response)
+        //Esto es destructuring
+        const { status, data } = response
+        this.setState({pokemonInfo: data})
+        })
+        .catch((error) => {
+            console.log('error',error)
+        })
     }
 
     buscar = (event) => {
@@ -52,19 +71,29 @@ class List extends Component {
                     <input className="input is-rounded is-expanded" onKeyUp={this.buscar} type="text" placeholder="Buscar"></input>
                     <br></br>
                     <select onChange={this.tipo}>
-                   {this.state.pokemones.map(pokemones =>
-                        (<option key={pokemones.id} value={pokemones.id}>{pokemones.type}></option>
-                        )
-                    )}
-                   </select>
+                        {this.state.pokemones.map(pokemones =>
+                            (<option key={pokemones.id} value={pokemones.id}>{pokemones.type}</option>
+                            )
+                        )}
+                    </select>
                 </div>
 
                 <div className='columns is-mobile is-multiline is-centered'>
-                    {
-                        this.state.resultados.map(pokemon => {
-                            return(<Pokemon key={pokemon.id} image={pokemon.ThumbnailImage} fili={pokemon.name} number={pokemon.number}></Pokemon>)
+                    {Object.values(this.state.pokemonInfo).length > 0 ? ( 
+                        <h4>Debe de mostrar la info de mi pokemon</h4>
+                    ) : (
+                        this.state.resultados.map((pokemon) => {
+                            return(
+                                <Pokemon key={pokemon.id} 
+                                    image={pokemon.ThumbnailImage} 
+                                    fili={pokemon.name} 
+                                    umber={pokemon.number} t
+                                    tipo={pokemon.type} 
+                                    getPokemon={this.getPokemonInfo}>
+                                </Pokemon>
+                            )
                         })
-                    }
+                    )}
                 </div>
             </div>
         )   
