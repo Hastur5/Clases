@@ -13,7 +13,7 @@ function App() {
   
   return (
     <div className="container">
-      <div className='row'>
+      <div className=' grid-columns:      12;' md={1}>
         {
           personajes.map((personaje) => {
             return (<Personaje key={personaje._id} image={personaje.image} name={personaje.name}></Personaje>)
