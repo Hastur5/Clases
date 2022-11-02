@@ -80,14 +80,31 @@ class List extends Component {
 
                 <div className='columns is-mobile is-multiline is-centered'>
                     {Object.values(this.state.pokemonInfo).length > 0 ? ( 
-                        <h4>Debe de mostrar la info de mi pokemon</h4>
+                        <div>
+                            <p>{this.state.pokemonInfo.ThumbnailImage}</p>
+                            <p>Nombre: {this.state.pokemonInfo.name}</p>
+                            <p>Altura: {this.state.pokemonInfo.height}</p>
+                            <p>Peso: {this.state.pokemonInfo.weight}</p>
+                            <ul>
+                            {this.state.pokemonInfo.moves.slice(0,5).map(( element, i) => (
+                                <li key={this.state.id}>
+                                    Movimiento {i + 1}: {element.move.name} 
+                                </li>
+                            ))}
+                            </ul>
+                            <br /> 
+                            {/* Se setea la info para que regrese a pintar los últimos. */}
+                            <button onClick={()=> this.setState({ pokemonInfo: {} })}>
+                                Atrás
+                            </button>
+                        </div>
                     ) : (
                         this.state.resultados.map((pokemon) => {
                             return(
                                 <Pokemon key={pokemon.id} 
                                     image={pokemon.ThumbnailImage} 
                                     fili={pokemon.name} 
-                                    umber={pokemon.number} t
+                                    number={pokemon.number}
                                     tipo={pokemon.type} 
                                     getPokemon={this.getPokemonInfo}>
                                 </Pokemon>
