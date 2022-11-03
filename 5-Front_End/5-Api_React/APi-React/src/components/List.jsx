@@ -1,14 +1,15 @@
 import { Component } from 'react';
 import axios from 'axios';
 import Pokemon from "./Pokemon";
-import Select from 'react-select';
+import PokemonDetail from './PokemonDetail';
 
 class List extends Component {
 
     state = {
         pokemones: [],
         resultados: [],
-        pokemonInfo: {}
+        pokemonInfo: {},
+        namePokemon: "",
     }
 
 
@@ -22,39 +23,52 @@ class List extends Component {
     }
 
     componentDidMount(){
-        axios.get('https://raw.githubusercontent.com/oicrruf/g15-computer-science/develop/ejercicios/pokedex-registro/json/pokemon.json')
-        .then((response) => {
-            this.setState({pokemones:response.data, resultados:response.data});
-        })
-        .catch((error) => {
-            console.log(error)
-        });
+        axios
+            .get('https://raw.githubusercontent.com/oicrruf/g15-computer-science/develop/ejercicios/pokedex-registro/json/pokemon.json')
+            .then((response) => {
+                this.setState({pokemones:response.data, resultados:response.data});
+            })
+            .catch((error) => {
+                console.log(error)
+            });
     }
 
-    getPokemonInfo(fili){
-        const BASE_URL = 'https://pokeapi.co/api/v2/'
+    
+    //Previus props y previous state
+    componentDidUpdate(prevProps, prevState){
+        console.log(prevState.namePokemon)
+        console.log(prevProps.namePokemon)
+        
+        if(prevState.namePokemon !== this.state.namePokemon){
+            this.getPokemonInfo();
+        }
+    }
+    
+    
+    buscar = (event) => {
+        let q = event.currentTarget.value.toLowerCase()
+        let filtrados = this.state.pokemones.filter((pokemon) => {
+            return pokemon.name.toLowerCase().includes(q)
+            
+        })
+        this.setState({resultados:filtrados})
+    }
+    
+    getPokemonInfo(){
+        const BASE_URL = 'https://pokeapi.co/api/v2/';
+
         axios
-        .get(`${BASE_URL}pokemon/${fili}`)
+        .get(`${BASE_URL}pokemon/${this.state.namePokemon}`)
         .then((response) => {
-            console.log('Respuesta de POKEAPI',response)
         //Esto es destructuring
-        const { status, data } = response
-        this.setState({pokemonInfo: data})
+        const { data } = response
+        this.setState({ pokemonInfo: data })
         })
         .catch((error) => {
             console.log('error',error)
         })
     }
-
-    buscar = (event) => {
-      let q = event.currentTarget.value.toLowerCase()
-      let filtrados = this.state.pokemones.filter((pokemon) => {
-        return pokemon.name.toLowerCase().includes(q)
-
-      })
-      this.setState({resultados:filtrados})
-    }
-
+    
     tipo (event) {
         let skip = event.currentTarget.value()
         let filtrados = this.state.pokemones.filter((pokemon) => {
@@ -77,42 +91,34 @@ class List extends Component {
                         )}
                     </select>
                 </div>
-
                 <div className='columns is-mobile is-multiline is-centered'>
                     {Object.values(this.state.pokemonInfo).length > 0 ? ( 
-                        <div>
-                            <p>{this.state.pokemonInfo.ThumbnailImage}</p>
-                            <p>Nombre: {this.state.pokemonInfo.name}</p>
-                            <p>Altura: {this.state.pokemonInfo.height}</p>
-                            <p>Peso: {this.state.pokemonInfo.weight}</p>
-                            <ul>
-                            {this.state.pokemonInfo.moves.slice(0,5).map(( element, i) => (
-                                <li key={this.state.id}>
-                                    Movimiento {i + 1}: {element.move.name} 
-                                </li>
-                            ))}
-                            </ul>
-                            <br /> 
-                            {/* Se setea la info para que regrese a pintar los últimos. */}
-                            <button onClick={()=> this.setState({ pokemonInfo: {} })}>
-                                Atrás
-                            </button>
-                        </div>
+                            <PokemonDetail
+                                detail={this.state.pokemonInfo}
+                                cleanPokemonDetail={() => this.setState({ pokemonInfo: {} })}
+                            />
+
                     ) : (
-                        this.state.resultados.map((pokemon) => {
-                            return(
-                                <Pokemon key={pokemon.id} 
-                                    image={pokemon.ThumbnailImage} 
-                                    fili={pokemon.name} 
-                                    number={pokemon.number}
-                                    tipo={pokemon.type} 
-                                    getPokemon={this.getPokemonInfo}>
-                                </Pokemon>
-                            )
-                        })
+                      
+                        <div className='columns is-mobile is-multiline is-centered'>
+                            {this.state.resultados.map((pokemon) => {
+                                return (
+                                    <Pokemon
+                                        key={pokemon.id}
+                                        image={pokemon.ThumbnailImage}
+                                        number={pokemon.number}
+                                        fili={pokemon.name}
+                                        getPokemon={(namePokemon) =>
+                                        this.setState({ namePokemon })
+                                        }
+                                    />
+                                );
+                            })}
+                        </div>
                     )}
                 </div>
             </div>
+            
         )   
     }
 };
