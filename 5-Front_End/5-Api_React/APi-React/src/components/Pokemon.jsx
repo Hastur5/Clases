@@ -8,7 +8,7 @@ class Pokemon extends Component{
             <Fragment>
                 <div className="columns">
                     <div className="column is-12">
-                        <div className="card box"
+                        <div className="card"
                              onClick={() => this.props.getPokemon(this.props.fili.toLowerCase())}>
                             <div className="card-image box-inner">
                                 <figure className="image box-front">
