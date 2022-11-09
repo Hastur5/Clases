@@ -1,14 +1,17 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import './App.css'
+import Dashboard from './components/Dashboard'
 
 const App = () => {
 
   //1. estados
   // const [user, setUser] = useState('');
   // const [password, setPassword] = useState('');
+  //variables de tipo boleanos es buena práctica que lleven el isAntes.
 
   const [credentials, setCredentials] = useState({})
+  const [isUserActive, setisUserActive] = useState(false)
 
   const USER_HARDCODE = 'userG18'
   const PASSWORD_HARDCODE = '12345'
@@ -37,10 +40,13 @@ const App = () => {
     setCredentials({...credentials, [name]: value})
   };
 
-  const submitForm = async () => {
+  const submitForm = () => {
     //simular petición al backend
     if(credentials.user === USER_HARDCODE && credentials.password === PASSWORD_HARDCODE){
       console.log('login exitoso')
+      setisUserActive(true)
+
+      return <h3>Login exitoso</h3>
     } else{
       console.log('no pasa')
     }
@@ -59,32 +65,39 @@ const App = () => {
 
   return (
     <div className="App">
-        <h3>Login app Fake </h3>
-        <div>
 
-          <div style={{margin:10}}>
-            <label htmlFor="">Usuario</label>
-            <input 
-              type="text"
-              name='user'
-              value={credentials.user}
-              onChange={handleInputValue}
-            />
-          </div>
+      {isUserActive ? (
+        <Dashboard/> 
+      ) : (
+        <>
+          <h3>Login app Fake </h3>
+          <div>
 
-          <div style={{margin:10}}>
-            <label htmlFor="">Password</label>
-            <input 
-              type="password"
-              name='password'
-              value={credentials.password} 
-              onChange={handleInputValue}
-            />
-          </div>
+            <div style={{margin:10}}>
+              <label htmlFor="">Usuario</label>
+              <input 
+                type="text"
+                name='user'
+                value={credentials.user}
+                onChange={handleInputValue}
+              />
+            </div>
 
-          <button onClick={() => submitForm()}>Enviar</button>
+            <div style={{margin:10}}>
+              <label htmlFor="">Password</label>
+              <input 
+                type="password"
+                name='password'
+                value={credentials.password} 
+                onChange={handleInputValue}
+              />
+            </div>
 
-        </div>
+            <button onClick={() => submitForm()}>Enviar</button>
+
+            </div>
+          </>
+        )}
     </div>
   )
 }
