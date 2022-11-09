@@ -1,7 +1,8 @@
 import axios from 'axios'
 import React, {useEffect, useState} from 'react'
+import Button from '@mui/material/Button';
 
-export default function Dashboard(props) {
+export default function Dashboard({ logout }) {  //es igual que como si estuvieramos definiendo props.logout. Es desctructuring porque sólo estamos trabajando con un elemento.
 
     const [charactersArray, setcharactersArray] = useState([])
 
@@ -37,7 +38,10 @@ export default function Dashboard(props) {
   return (
     <>
         <h4>Dashboard</h4>
-        <button onClick={() => props.logout()}>LogOut</button>
+        {/* generalmente aquí va props.logout, pero como rn la línea 4 se hizo destructuring, entonces se quita también el props. */}
+        <Button variant="outlined" onClick={() => logout()}>
+            LogOut
+        </Button>
         <h5>Lista de Personajes</h5>
         {charactersArray.map( (element, i) => (
             <div key={i}>
