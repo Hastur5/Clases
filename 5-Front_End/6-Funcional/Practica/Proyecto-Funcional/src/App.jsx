@@ -78,7 +78,7 @@ const App = () => {
               <input 
                 type="text"
                 name='user'
-                value={credentials.user}
+                value={credentials.user || ''}
                 onChange={handleInputValue}
               />
             </div>
@@ -88,7 +88,7 @@ const App = () => {
               <input 
                 type="password"
                 name='password'
-                value={credentials.password} 
+                value={credentials.password || ''} 
                 onChange={handleInputValue}
               />
             </div>
