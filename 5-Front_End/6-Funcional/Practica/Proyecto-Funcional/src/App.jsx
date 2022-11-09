@@ -1,21 +1,28 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import axios from 'axios'
 import './App.css'
 
 const App = () => {
 
   //1. estados
-  const [user, setUser] = useState('');
-  const [password, setPassword] = useState('');
+  // const [user, setUser] = useState('');
+  // const [password, setPassword] = useState('');
+
+  const [credentials, setCredentials] = useState({})
 
   const USER_HARDCODE = 'userG18'
   const PASSWORD_HARDCODE = '12345'
 
   //2. userEffects
+  //Primero se pone el callback y al final el estado que se quiere escuchar.
+  useEffect(() => {
+    console.log('nuevo valor', credentials)
+  }, [credentials])
 
   //3. funciones            //destructuring
   const handleInputValue = ({target: { value, name }}) =>{
-    name === 'user' ? setUser(value) : setPassword(value)
+
+    //name === 'user' ? setUser(value) : setPassword(value)
     // console.log('valor', value);
     // if(name === 'user') {
     //   setUser(value);
@@ -26,22 +33,28 @@ const App = () => {
     // const handleInputValue = (e) => {
     //  console.log('valor', e.target.value)
     //}
+    // "..."" hace una copia del objeto
+    setCredentials({...credentials, [name]: value})
   };
 
-  const submitForm = () => {
-    // if(user === USER_HARDCODE && password === PASSWORD_HARDCODE){
-    //   console.log('login exitoso')
-    // } else{
-    //   console.log('no pasa')
-    // }
+  const submitForm = async () => {
+    //simular petición al backend
+    if(credentials.user === USER_HARDCODE && credentials.password === PASSWORD_HARDCODE){
+      console.log('login exitoso')
+    } else{
+      console.log('no pasa')
+    }
     // user === USER_HARDCODE && password === PASSWORD_HARDCODE
     // ? alert('acceso concedido')
     // : alert('Datos incorrectos')
-
-    const object { user: userG18 }
     
-    axios.post('')
-
+    // const objectLogin = { email: user, password }
+    
+    //   const result = await axios.post(
+    //     'https://ecomerce-master.herokuapp.com/api/v1/login',
+    //     objectLogin
+    //     );
+    //   console.log('result', result)
   };
 
   return (
@@ -54,7 +67,7 @@ const App = () => {
             <input 
               type="text"
               name='user'
-              value={user}
+              value={credentials.user}
               onChange={handleInputValue}
             />
           </div>
@@ -64,7 +77,7 @@ const App = () => {
             <input 
               type="password"
               name='password'
-              value={password} 
+              value={credentials.password} 
               onChange={handleInputValue}
             />
           </div>
