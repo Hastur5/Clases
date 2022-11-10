@@ -1,6 +1,10 @@
 import axios from 'axios'
 import React, {useEffect, useState} from 'react'
 import Button from '@mui/material/Button';
+import Card from '@mui/material/Card';
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
+
 
 export default function Dashboard({ logout }) {  //es igual que como si estuvieramos definiendo props.logout. Es desctructuring porque sólo estamos trabajando con un elemento.
 
@@ -38,18 +42,30 @@ export default function Dashboard({ logout }) {  //es igual que como si estuvier
   return (
     <>
         <h4>Dashboard</h4>
-        {/* generalmente aquí va props.logout, pero como rn la línea 4 se hizo destructuring, entonces se quita también el props. */}
-        <Button variant="outlined" onClick={() => logout()}>
-            LogOut
-        </Button>
+            {/* generalmente aquí va props.logout, pero como rn la línea 4 se hizo destructuring, entonces se quita también el props. */}
+            <Button variant="outlined #d50000" onClick={() => logout()}>
+                LogOut
+            </Button>
         <h5>Lista de Personajes</h5>
-        {charactersArray.map( (element, i) => (
-            <div key={i}>
-                <p> Name: {element.name}</p>
-                <p> Height: {element.height}</p>
-                <p> Hair color: {element.hair_color}</p>
-            </div>
-        ) )}
+        <Grid container spacing={{ xs: 3, md: 3 }}>
+            {charactersArray.map( (element, i) => (
+                <Grid item xs={6} md= {3} key={i}>
+                    <Card variant="outlined">
+                        <p> Name: {element.name}</p>
+                        <p> Height: {element.height}</p>
+                        <p> Hair color: {element.hair_color}</p>
+                    </Card>
+                </Grid>
+            ))}
+        </Grid>
     </>
   );
 }
+
+// (!charactersArray.length?(   Esto sirve para validar si está llegando info. Si es 0, muestra el componente de abajo. Si no, entonces píntalos.
+// Valores truhdy and falsy
+//     <CircularProgress color='secondary'/>
+// ) : (
+
+// )
+// )
