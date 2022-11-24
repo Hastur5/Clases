@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import SimpleForm from '../components/SimpleForm'
+import FormHook from '../components/FormHook'
 import './App.css'
 
 function App () {
@@ -7,7 +7,7 @@ function App () {
 
   return (
     <div className='App'>
-      <SimpleForm />
+      <FormHook />
     </div>
   )
 }
