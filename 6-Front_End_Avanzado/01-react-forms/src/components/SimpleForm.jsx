@@ -1,3 +1,4 @@
+// Forma de crear un login sencillo o una app sencilla sin muchos estados.
 import { useState } from 'react'
 import logo from '../src/assets/react.svg'
 

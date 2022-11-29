@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import FormHook from '../components/FormHook'
+import FormHook from '../src/components/FormHook'
 import './App.css'
 
 function App () {
