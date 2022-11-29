@@ -16,17 +16,17 @@ export const FormHook = () => {
 
   // Paso 2: Voy a simular traer datos de una API y prerellenar el formulario.
   useEffect(() => {
-    // setTimeout(() => {
-    //   const info = {
-    //     nombre: 'Fili',
-    //     apellido: 'Filo',
-    //     edad: 6,
-    //     genero: 'M',
-    //     email: 'fili@fili.com',
-    //     password: 'filis'
-    //   }
-    //   setDatos(info)
-    // }, 5000)
+    setTimeout(() => {
+      const info = {
+        nombre: 'Fili',
+        apellido: 'Filo',
+        edad: 6,
+        genero: 'M',
+        email: 'fili@fili.com',
+        password: 'filis'
+      }
+      setDatos(info)
+    }, 5000)
   }, [])
 
   const sendData = (data) => {
