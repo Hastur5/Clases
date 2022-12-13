@@ -2,6 +2,7 @@
 // Context está disponible a partir de la versión 16 de React. Y para usar context necesitamos seguir una serie de pasos
 
 import { createContext, useState, useEffect, useContext } from 'react'
+import canciones from '@/assets/listaCanciones.json'
 
 // Para usar context, necesitamos seguir una serie de pasos.
 
