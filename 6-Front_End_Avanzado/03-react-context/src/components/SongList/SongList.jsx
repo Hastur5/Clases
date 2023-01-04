@@ -8,7 +8,7 @@ const SongList = () => {
       {
         context.loading
           ? <h1>Cargando...</h1>
-          : context.list.filter(song => {
+          : context.list.filter(song => { // Se están encadenado las funciones. Se usa Filter y después map.
             if (context.search === '') {
               return song // si la búsqueda es vacía, vamos a retornar todas las canciones.
             } else if (song.title.toLowerCase().includes(context.search.toLowerCase())) {
