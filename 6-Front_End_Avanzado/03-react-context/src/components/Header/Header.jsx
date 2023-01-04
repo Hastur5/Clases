@@ -1,4 +1,4 @@
-import { useSongContext } from '@/context/SongContext'
+import { useSongContext } from '@/Context/SongContext'
 
 const Header = () => {
   const context = useSongContext()
@@ -11,9 +11,18 @@ const Header = () => {
   const previousSong = () => {
 
   }
-  
+
   return (
-    <div>Header</div>
+    song.title
+      ? (
+        <div>
+          Now playing... {song.title} - {song.artist}
+          <input type='search' onChange={() => {}} />
+          <button>Prev</button>
+          <button>Next</button>
+        </div>
+        )
+      : <div> Selecciona una canción... </div>
   )
 }
 
